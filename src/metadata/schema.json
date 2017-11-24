@@ -960,13 +960,13 @@
             "args": [
                 {
                     "name": "username",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your username.",
                     "required": true
                 },
                 {
                     "name": "password",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your password.",
                     "required": true
                 },
@@ -1399,329 +1399,18 @@
             ]
         },
         {
-            "name": "createPage",
-            "description": "Create new page.",
-            "args": [
-                {
-                    "name": "username",
-                    "type": "String",
-                    "info": "Your username.",
-                    "required": true
-                },
-                {
-                    "name": "password",
-                    "type": "String",
-                    "info": "Your password.",
-                    "required": true
-                },
-                {
-                    "name": "title",
-                    "type": "String",
-                    "info": "Title of the page to edit.Example - Talk:testMain_Page.",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "title"
-                    }
-                },
-                {
-                    "name": "section",
-                    "type": "String",
-                    "info": "Section number. 0 for the top section, new for a new section.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "section"
-                    }
-                },
-                {
-                    "name": "sectionTitle",
-                    "type": "String",
-                    "info": "The title for a new section.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "sectiontitle"
-                    }
-                },
-                {
-                    "name": "pageText",
-                    "type": "String",
-                    "info": "Page content.",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "text"
-                    }
-                },
-                {
-                    "name": "summary",
-                    "type": "String",
-                    "info": "Edit summary. Also section title when section=new and sectiontitle is not set.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "summary"
-                    }
-                },
-                {
-                    "name": "tags",
-                    "type": "String",
-                    "info": "Change tags to apply to the revision.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "tags"
-                    }
-                },
-                {
-                    "name": "baseTimestamp",
-                    "type": "DatePicker",
-                    "info": "Timestamp of the base revision, used to detect edit conflicts. ",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "basetimestamp",
-                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
-                    }
-                }
-            ],
-            "vendorRequest": {
-                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=edit&",
-                "method": "post",
-                "requestParameters": [
-                    {
-                        "type": "form_params",
-                        "parameters": [
-                            "token",
-                            "tags",
-                            "summary",
-                            "text",
-                            "sectiontitle",
-                            "section",
-                            "title",
-                            "basetimestamp"
-                        ]
-                    }
-                ]
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
-        {
-            "name": "updatePage",
-            "description": "Edit page.",
-            "args": [
-                {
-                    "name": "username",
-                    "type": "String",
-                    "info": "Your username.",
-                    "required": true
-                },
-                {
-                    "name": "password",
-                    "type": "String",
-                    "info": "Your password.",
-                    "required": true
-                },
-                {
-                    "name": "pageId",
-                    "type": "String",
-                    "info": "Page ID of the page to edit.",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "pageid"
-                    }
-                },
-                {
-                    "name": "section",
-                    "type": "String",
-                    "info": "Section number. 0 for the top section, new for a new section.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "section"
-                    }
-                },
-                {
-                    "name": "sectionTitle",
-                    "type": "String",
-                    "info": "The title for a new section.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "sectiontitle"
-                    }
-                },
-                {
-                    "name": "pageText",
-                    "type": "String",
-                    "info": "Page content.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "text"
-                    }
-                },
-                {
-                    "name": "summary",
-                    "type": "String",
-                    "info": "Edit summary. Also section title when section=new and sectiontitle is not set.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "summary"
-                    }
-                },
-                {
-                    "name": "tags",
-                    "type": "String",
-                    "info": "Change tags to apply to the revision.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "tags"
-                    }
-                },
-                {
-                    "name": "prependText",
-                    "type": "String",
-                    "info": "Add this text to the beginning of the page. Overrides text.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "prependtext"
-                    }
-                },
-                {
-                    "name": "botEdit",
-                    "type": "String",
-                    "info": "Mark this edit as a bot edit.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "bot"
-                    }
-                },
-                {
-                    "name": "contentFormat",
-                    "type": "String",
-                    "info": "Content serialization format used for the input text.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "contentformat"
-                    }
-                },
-                {
-                    "name": "appendText",
-                    "type": "String",
-                    "info": "Add this text to the end of the page. Overrides text.Use section=new to append a new section, rather than this parameter.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "appendtext"
-                    }
-                },
-                {
-                    "name": "appendText",
-                    "type": "String",
-                    "info": "Add this text to the end of the page. Overrides text.Use section=new to append a new section, rather than this parameter.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "appendtext"
-                    }
-                },
-                {
-                    "name": "minor",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Minor edit.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "minor"
-                    }
-                },
-                {
-                    "name": "notMinor",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Notminor edit.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "notminor"
-                    }
-                },
-                {
-                    "name": "customParams",
-                    "type": "List",
-                    "structure": [
-                        {
-                            "name": "key",
-                            "type": "String",
-                            "info": "Key param.",
-                            "required": true
-                        },
-                        {
-                            "name": "value",
-                            "type": "String",
-                            "info": "value param.",
-                            "required": true
-                        }
-                    ],
-                    "info": "Additional custom query param.Like this `&key=value`.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "customParams"
-                    }
-                }
-            ],
-            "vendorRequest": {
-                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=edit&",
-                "method": "post",
-                "requestParameters": [
-                    {
-                        "type": "form_params",
-                        "parameters": [
-                            "notminor",
-                            "minor",
-                            "prependtext",
-                            "token",
-                            "tags",
-                            "summary",
-                            "text",
-                            "sectiontitle",
-                            "section",
-                            "pageid",
-                            "appendtext",
-                            "bot",
-                            "contentformat"
-                        ]
-                    }
-                ]
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
-        {
             "name": "deletePage",
             "description": "Delete page.",
             "args": [
                 {
                     "name": "username",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your username.",
                     "required": true
                 },
                 {
                     "name": "password",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your password.",
                     "required": true
                 },
@@ -1830,13 +1519,13 @@
             "args": [
                 {
                     "name": "username",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your username.",
                     "required": true
                 },
                 {
                     "name": "password",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your password.",
                     "required": true
                 },
@@ -2121,13 +1810,13 @@
             "args": [
                 {
                     "name": "username",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your username.",
                     "required": true
                 },
                 {
                     "name": "password",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your password.",
                     "required": true
                 },
@@ -2203,13 +1892,13 @@
             "args": [
                 {
                     "name": "username",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your username.",
                     "required": true
                 },
                 {
                     "name": "password",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your password.",
                     "required": true
                 },
@@ -2624,13 +2313,13 @@
             "args": [
                 {
                     "name": "username",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your username.",
                     "required": true
                 },
                 {
                     "name": "password",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your password.",
                     "required": true
                 },
@@ -2821,13 +2510,13 @@
             "args": [
                 {
                     "name": "username",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your username.",
                     "required": true
                 },
                 {
                     "name": "password",
-                    "type": "String",
+                    "type": "credentials",
                     "info": "Your password.",
                     "required": true
                 },

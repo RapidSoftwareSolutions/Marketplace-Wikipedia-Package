@@ -20,8 +20,10 @@ $app->post('/api/Wikipedia/comparePages', function ($request, $response) {
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
-    $data['prop'] = \Models\Params::toString($data['prop'], '|'); 
+    if(!empty($data['prop']))
+    {
+        $data['prop'] = \Models\Params::toString($data['prop'], '|');
+    }
 
     $client = $this->httpClient;
     $query_str = "https://en.wikipedia.org/w/api.php";

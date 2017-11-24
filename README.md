@@ -116,43 +116,6 @@ List all categories the pages belong to.
 | categoryProp   | List  | Which additional properties to get for each category.
 | customParams   | List  | Additional custom query param.Like this `&key=value`.
 
-## Wikipedia.createPage
-Create new page. See more [here](https://en.wikipedia.org/w/api.php?action=help&modules=edit) .
-
-| Field        | Type      | Description
-|--------------|-----------|----------
-| username     | String    | Your username.
-| password     | String    | Your password.
-| title        | String    | Title of the page to edit.Example - Talk:testMain_Page.
-| section      | String    | Section number. 0 for the top section, new for a new section.
-| sectionTitle | String    | The title for a new section.
-| pageText     | String    | Page content.
-| summary      | String    | Edit summary. Also section title when section=new and sectiontitle is not set.
-| tags         | String    | Change tags to apply to the revision.
-| baseTimestamp| DatePicker| Timestamp of the base revision, used to detect edit conflicts. 
-
-## Wikipedia.updatePage
-Edit page. See more [here](https://en.wikipedia.org/w/api.php?action=help&modules=edit) .
-
-| Field        | Type  | Description
-|--------------|-------|----------
-| username     | String| Your username.
-| password     | String| Your password.
-| pageId       | String| Page ID of the page to edit.
-| section      | String| Section number. 0 for the top section, new for a new section.
-| sectionTitle | String| The title for a new section.
-| pageText     | String| Page content.
-| summary      | String| Edit summary. Also section title when section=new and sectiontitle is not set.
-| tags         | String| Change tags to apply to the revision.
-| prependText  | String| Add this text to the beginning of the page. Overrides text.
-| botEdit      | String| Mark this edit as a bot edit.
-| contentFormat| String| Content serialization format used for the input text.
-| appendText   | String| Add this text to the end of the page. Overrides text.Use section=new to append a new section, rather than this parameter.
-| appendText   | String| Add this text to the end of the page. Overrides text.Use section=new to append a new section, rather than this parameter.
-| minor        | Select| Minor edit.
-| notMinor     | Select| Notminor edit.
-| customParams | List  | Additional custom query param.Like this `&key=value`.
-
 ## Wikipedia.deletePage
 Delete page.
 
