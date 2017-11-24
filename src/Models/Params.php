@@ -23,6 +23,15 @@ class Params
         {
             if(array_key_exists($key, $optionalParams) && !empty($value))
             {
+                if($value == 'true')
+                {
+                    $value = "1";
+                }
+
+                if($value == 'false')
+                {
+                    $value = "0";
+                }
                 $data[$optionalParams[$key]] = $value;
             }
         }

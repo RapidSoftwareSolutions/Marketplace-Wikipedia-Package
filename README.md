@@ -32,7 +32,7 @@ GetArticleByTitles module allows you to get information about a wiki and the dat
 | customParams        | List  | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.getPage
-GetPage module allows you to get information by id about a wiki and the data stored in it, such as the wikitext of a particular page, the links and categories of a set of pages.
+GetPage module allows you to get information by id about a wiki and the data stored in it, such as the wikitext of a particular page, the links and categories of a set of pages.See more [here](https://www.mediawiki.org/wiki/API:Query)
 
 | Field               | Type  | Description
 |---------------------|-------|----------
@@ -46,7 +46,7 @@ GetPage module allows you to get information by id about a wiki and the data sto
 | customParams        | List  | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.getPageByRevisionId
-getPageByRevId module allows you to get information by id about a wiki and the data stored in it, such as the wikitext of a particular page, the links and categories of a set of pages.
+getPageByRevId module allows you to get information by id about a wiki and the data stored in it, such as the wikitext of a particular page, the links and categories of a set of pages.See more [here](https://www.mediawiki.org/wiki/API:Query)
 
 | Field               | Type  | Description
 |---------------------|-------|----------
@@ -67,7 +67,7 @@ Returns file url.
 | fileName| String| Example - `File:James Hetfield - Cardiff 1996.jpg`.
 
 ## Wikipedia.getFilesInfo
-Returns file information and upload history.
+Returns file information and upload history.See more [here](https://www.mediawiki.org/wiki/API:Imageinfo);
 
 | Field              | Type      | Description
 |--------------------|-----------|----------
@@ -117,7 +117,7 @@ List all categories the pages belong to.
 | customParams   | List  | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.createPage
-Create new page.
+Create new page. See more [here](https://en.wikipedia.org/w/api.php?action=help&modules=edit) .
 
 | Field        | Type      | Description
 |--------------|-----------|----------
@@ -132,7 +132,7 @@ Create new page.
 | baseTimestamp| DatePicker| Timestamp of the base revision, used to detect edit conflicts. 
 
 ## Wikipedia.updatePage
-Edit page.
+Edit page. See more [here](https://en.wikipedia.org/w/api.php?action=help&modules=edit) .
 
 | Field        | Type  | Description
 |--------------|-------|----------
