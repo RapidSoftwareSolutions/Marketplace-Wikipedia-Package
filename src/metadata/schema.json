@@ -1,0 +1,2858 @@
+{
+    "package": "Wikipedia",
+    "tagline": "Wikipedia API",
+    "description": "Wikipedia is a free online encyclopedia with the aim to allow anyone to edit articles. Wikipedia is the largest and most popular general reference work on the Internet,and is ranked the fifth-most popular website. Wikipedia is owned by the nonprofit Wikimedia Foundation.",
+    "image": "https:\/\/logo.clearbit.com\/\/en.wikipedia.org",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-Wikipedia-Package",
+    "keywords": [
+        "API",
+        "Articles",
+        "Encyclopedia",
+        "Libraries",
+        "Wiki",
+        "Information"
+    ],
+    "accounts": {
+        "domain": "www.wikipedia.org",
+        "credentials": [
+            "username",
+            "password"
+        ]
+    },
+    "steps": [
+        "Register on the https:\/\/www.wikipedia.org"
+    ],
+    "blocks": [
+        {
+            "name": "getPageByTitles",
+            "description": "GetArticleByTitles module allows you to get information about a wiki and the data stored in it, such as the wikitext of a particular page, the links and categories of a set of pages.See more in readme.",
+            "args": [
+                {
+                    "name": "titles",
+                    "type": "List",
+                    "structure": {
+                        "name": "title",
+                        "type": "String",
+                        "info": "single title."
+                    },
+                    "info": "A list of titles to work on.Maximum number of values is 50 .",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "titles",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "additionalProperties",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options": [
+                            "categories",
+                            "categoryinfo",
+                            "contributors",
+                            "deletedrevisions",
+                            "duplicatefiles",
+                            "extlinks",
+                            "extracts",
+                            "fileusage",
+                            "globalusage",
+                            "imageinfo",
+                            "images",
+                            "info",
+                            "iwlinks",
+                            "langlinks",
+                            "links",
+                            "linkshere",
+                            "mapdata",
+                            "pageimages",
+                            "pageprops",
+                            "pageterms",
+                            "pageviews",
+                            "redirects",
+                            "references",
+                            "revisions",
+                            "stashimageinfo",
+                            "templates",
+                            "transcludedin",
+                            "transcodestatus",
+                            "videoinfo",
+                            "wbentityusage",
+                            "flowinfo"
+                        ],
+                        "info": "single property."
+                    },
+                    "info": "Properties of pages, including page revisions and content.Property queries get various data about a list of pages.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "prop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "additionalLists",
+                    "type": "List",
+                    "structure": {
+                        "name": "list",
+                        "type": "Select",
+                        "options": [
+                            "abusefilters",
+                            "abuselog",
+                            "allcategories",
+                            "alldeletedrevisions",
+                            "allfileusages",
+                            "allimages",
+                            "alllinks",
+                            "allpages",
+                            "allredirects",
+                            "allrevisions",
+                            "alltransclusions",
+                            "allusers",
+                            "backlinks",
+                            "betafeatures",
+                            "blocks",
+                            "categorymembers",
+                            "centralnoticelogs",
+                            "checkuser",
+                            "checkuserlog",
+                            "contenttranslation",
+                            "contenttranslationcorpora",
+                            "contenttranslationlangtrend",
+                            "contenttranslationstats",
+                            "contenttranslationsuggestions",
+                            "cxpublishedtranslations",
+                            "cxtranslatorstats",
+                            "embeddedin",
+                            "exturlusage",
+                            "filearchive",
+                            "gadgetcategories",
+                            "gadgets",
+                            "geosearch",
+                            "gettingstartedgetpages",
+                            "globalallusers",
+                            "globalblocks",
+                            "globalgroups",
+                            "imageusage",
+                            "iwbacklinks",
+                            "langbacklinks",
+                            "linterrors",
+                            "logevents",
+                            "mmsites",
+                            "mostviewed",
+                            "mystashedfiles",
+                            "oldreviewedpages",
+                            "pagepropnames",
+                            "pageswithprop",
+                            "prefixsearch",
+                            "projectpages",
+                            "projects",
+                            "protectedtitles",
+                            "querypage",
+                            "random",
+                            "recentchanges",
+                            "search",
+                            "tags",
+                            "usercontribs",
+                            "users",
+                            "watchlist",
+                            "watchlistraw",
+                            "wblistentityusage",
+                            "wikisets",
+                            "deletedrevs"
+                        ],
+                        "info": "single list."
+                    },
+                    "info": "Lists of pages that match certain criteria.Lists differ from properties in two aspects - instead of appending data to the elements in the pages element, each list has its own separated branch in the query element.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "list",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "export",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Export the current revisions of all given or generated pages.",
+                    "required": false
+                },
+                {
+                    "name": "indexPageIds",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Include an additional pageids section listing all returned page IDs.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "indexpageids"
+                    }
+                },
+                {
+                    "name": "iwurl",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Whether to get the full URL if the title is an interwiki link.",
+                    "required": false
+                },
+                {
+                    "name": "rawcontinue",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Return raw query-continue data for continuation.",
+                    "required": false
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=query&",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "rawcontinue",
+                            "iwurl",
+                            "indexpageids",
+                            "export",
+                            "list",
+                            "titles",
+                            "prop"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getPage",
+            "description": "GetPage module allows you to get information by id about a wiki and the data stored in it, such as the wikitext of a particular page, the links and categories of a set of pages.",
+            "args": [
+                {
+                    "name": "pageIds",
+                    "type": "List",
+                    "structure": {
+                        "name": "pageId",
+                        "type": "String",
+                        "info": "single pageId."
+                    },
+                    "info": "A list of page IDs to work on.Maximum number of values is 50 (500 for bots).",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "pageids",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "additionalProperties",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options": [
+                            "categories",
+                            "categoryinfo",
+                            "contributors",
+                            "deletedrevisions",
+                            "duplicatefiles",
+                            "extlinks",
+                            "extracts",
+                            "fileusage",
+                            "globalusage",
+                            "imageinfo",
+                            "images",
+                            "info",
+                            "iwlinks",
+                            "langlinks",
+                            "links",
+                            "linkshere",
+                            "mapdata",
+                            "pageimages",
+                            "pageprops",
+                            "pageterms",
+                            "pageviews",
+                            "redirects",
+                            "references",
+                            "revisions",
+                            "stashimageinfo",
+                            "templates",
+                            "transcludedin",
+                            "transcodestatus",
+                            "videoinfo",
+                            "wbentityusage",
+                            "flowinfo"
+                        ],
+                        "info": "single property."
+                    },
+                    "info": "Properties of pages, including page revisions and content.Property queries get various data about a list of pages.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "prop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "additionalLists",
+                    "type": "List",
+                    "structure": {
+                        "name": "list",
+                        "type": "Select",
+                        "options": [
+                            "abusefilters",
+                            "abuselog",
+                            "allcategories",
+                            "alldeletedrevisions",
+                            "allfileusages",
+                            "allimages",
+                            "alllinks",
+                            "allpages",
+                            "allredirects",
+                            "allrevisions",
+                            "alltransclusions",
+                            "allusers",
+                            "backlinks",
+                            "betafeatures",
+                            "blocks",
+                            "categorymembers",
+                            "centralnoticelogs",
+                            "checkuser",
+                            "checkuserlog",
+                            "contenttranslation",
+                            "contenttranslationcorpora",
+                            "contenttranslationlangtrend",
+                            "contenttranslationstats",
+                            "contenttranslationsuggestions",
+                            "cxpublishedtranslations",
+                            "cxtranslatorstats",
+                            "embeddedin",
+                            "exturlusage",
+                            "filearchive",
+                            "gadgetcategories",
+                            "gadgets",
+                            "geosearch",
+                            "gettingstartedgetpages",
+                            "globalallusers",
+                            "globalblocks",
+                            "globalgroups",
+                            "imageusage",
+                            "iwbacklinks",
+                            "langbacklinks",
+                            "linterrors",
+                            "logevents",
+                            "mmsites",
+                            "mostviewed",
+                            "mystashedfiles",
+                            "oldreviewedpages",
+                            "pagepropnames",
+                            "pageswithprop",
+                            "prefixsearch",
+                            "projectpages",
+                            "projects",
+                            "protectedtitles",
+                            "querypage",
+                            "random",
+                            "recentchanges",
+                            "search",
+                            "tags",
+                            "usercontribs",
+                            "users",
+                            "watchlist",
+                            "watchlistraw",
+                            "wblistentityusage",
+                            "wikisets",
+                            "deletedrevs"
+                        ],
+                        "info": "single list."
+                    },
+                    "info": "Lists of pages that match certain criteria.Lists differ from properties in two aspects - instead of appending data to the elements in the pages element, each list has its own separated branch in the query element.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "list",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "export",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Export the current revisions of all given or generated pages.",
+                    "required": false
+                },
+                {
+                    "name": "indexPageIds",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Include an additional pageids section listing all returned page IDs.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "indexpageids"
+                    }
+                },
+                {
+                    "name": "iwurl",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Whether to get the full URL if the title is an interwiki link.",
+                    "required": false
+                },
+                {
+                    "name": "rawcontinue",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Return raw query-continue data for continuation.",
+                    "required": false
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=query&",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "rawcontinue",
+                            "iwurl",
+                            "indexpageids",
+                            "export",
+                            "list",
+                            "pageids",
+                            "prop"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getPageByRevisionId",
+            "description": "getPageByRevId module allows you to get information by id about a wiki and the data stored in it, such as the wikitext of a particular page, the links and categories of a set of pages.",
+            "args": [
+                {
+                    "name": "revIds",
+                    "type": "List",
+                    "structure": {
+                        "name": "revId",
+                        "type": "String",
+                        "info": "single revId."
+                    },
+                    "info": "A list of revision IDs to work on.Maximum number of values is 50 (500 for bots).",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "revids",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "additionalProperties",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options": [
+                            "categories",
+                            "categoryinfo",
+                            "contributors",
+                            "deletedrevisions",
+                            "duplicatefiles",
+                            "extlinks",
+                            "extracts",
+                            "fileusage",
+                            "globalusage",
+                            "imageinfo",
+                            "images",
+                            "info",
+                            "iwlinks",
+                            "langlinks",
+                            "links",
+                            "linkshere",
+                            "mapdata",
+                            "pageimages",
+                            "pageprops",
+                            "pageterms",
+                            "pageviews",
+                            "redirects",
+                            "references",
+                            "revisions",
+                            "stashimageinfo",
+                            "templates",
+                            "transcludedin",
+                            "transcodestatus",
+                            "videoinfo",
+                            "wbentityusage",
+                            "flowinfo"
+                        ],
+                        "info": "single property."
+                    },
+                    "info": "Properties of pages, including page revisions and content.Property queries get various data about a list of pages.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "prop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "additionalLists",
+                    "type": "List",
+                    "structure": {
+                        "name": "list",
+                        "type": "Select",
+                        "options": [
+                            "abusefilters",
+                            "abuselog",
+                            "allcategories",
+                            "alldeletedrevisions",
+                            "allfileusages",
+                            "allimages",
+                            "alllinks",
+                            "allpages",
+                            "allredirects",
+                            "allrevisions",
+                            "alltransclusions",
+                            "allusers",
+                            "backlinks",
+                            "betafeatures",
+                            "blocks",
+                            "categorymembers",
+                            "centralnoticelogs",
+                            "checkuser",
+                            "checkuserlog",
+                            "contenttranslation",
+                            "contenttranslationcorpora",
+                            "contenttranslationlangtrend",
+                            "contenttranslationstats",
+                            "contenttranslationsuggestions",
+                            "cxpublishedtranslations",
+                            "cxtranslatorstats",
+                            "embeddedin",
+                            "exturlusage",
+                            "filearchive",
+                            "gadgetcategories",
+                            "gadgets",
+                            "geosearch",
+                            "gettingstartedgetpages",
+                            "globalallusers",
+                            "globalblocks",
+                            "globalgroups",
+                            "imageusage",
+                            "iwbacklinks",
+                            "langbacklinks",
+                            "linterrors",
+                            "logevents",
+                            "mmsites",
+                            "mostviewed",
+                            "mystashedfiles",
+                            "oldreviewedpages",
+                            "pagepropnames",
+                            "pageswithprop",
+                            "prefixsearch",
+                            "projectpages",
+                            "projects",
+                            "protectedtitles",
+                            "querypage",
+                            "random",
+                            "recentchanges",
+                            "search",
+                            "tags",
+                            "usercontribs",
+                            "users",
+                            "watchlist",
+                            "watchlistraw",
+                            "wblistentityusage",
+                            "wikisets",
+                            "deletedrevs"
+                        ],
+                        "info": "single list."
+                    },
+                    "info": "Lists of pages that match certain criteria.Lists differ from properties in two aspects - instead of appending data to the elements in the pages element, each list has its own separated branch in the query element.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "list",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "export",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Export the current revisions of all given or generated pages.",
+                    "required": false
+                },
+                {
+                    "name": "indexPageIds",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Include an additional pageids section listing all returned page IDs.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "indexpageids"
+                    }
+                },
+                {
+                    "name": "iwurl",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Whether to get the full URL if the title is an interwiki link.",
+                    "required": false
+                },
+                {
+                    "name": "rawcontinue",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Return raw query-continue data for continuation.",
+                    "required": false
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "rawcontinue",
+                            "iwurl",
+                            "indexpageids",
+                            "export",
+                            "list",
+                            "revids",
+                            "prop"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getFileUrl",
+            "description": "Returns file url.",
+            "args": [
+                {
+                    "name": "fileName",
+                    "type": "String",
+                    "info": "Example - `File:James Hetfield - Cardiff 1996.jpg`.",
+                    "required": true
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=query&titles={$data['fileName']}&prop=imageinfo&iiprop=url",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getFilesInfo",
+            "description": "Returns file information and upload history.",
+            "args": [
+                {
+                    "name": "fileNames",
+                    "type": "List",
+                    "structure": {
+                        "name": "fileName",
+                        "type": "String",
+                        "info": "Single file name."
+                    },
+                    "info": "Which file get.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "titles",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "informationToGet",
+                    "type": "List",
+                    "structure": {
+                        "name": "informationType",
+                        "type": "Select",
+                        "options": [
+                            "timestamp",
+                            "user",
+                            "userid",
+                            "comment",
+                            "parsedcomment",
+                            "canonicaltitle",
+                            "url",
+                            "size",
+                            "dimensions",
+                            "sha1",
+                            "mime",
+                            "thumbmime",
+                            "mediatype",
+                            "metadata",
+                            "commonmetadata",
+                            "extmetadata",
+                            "archivename",
+                            "bitdepth",
+                            "uploadwarning",
+                            "badfile"
+                        ],
+                        "info": "Information type."
+                    },
+                    "info": "Which file information to get.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iiprop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "informationLimit",
+                    "type": "String",
+                    "info": "Example - `File:James Hetfield - Cardiff 1996.jpg`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iilimit"
+                    }
+                },
+                {
+                    "name": "startListingFrom",
+                    "type": "DatePicker",
+                    "info": "Timestamp to start listing from.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iistart",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                },
+                {
+                    "name": "stopListingAt",
+                    "type": "DatePicker",
+                    "info": "Timestamp to stop listing at.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iiend",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                },
+                {
+                    "name": "urlWidth",
+                    "type": "String",
+                    "info": "If iiprop=url is set, a URL to an image scaled to this width will be returned. For performance reasons if this option is used, no more than 50 scaled images will be returned.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iiurlwidth"
+                    }
+                },
+                {
+                    "name": "urlHeight",
+                    "type": "String",
+                    "info": "Similar to iiurlwidth.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iiurlheight"
+                    }
+                },
+                {
+                    "name": "metadataLanguage",
+                    "type": "String",
+                    "info": "What language to fetch extmetadata in. This affects both which translation to fetch, if multiple are available, as well as how things like numbers and various values are formatted.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iiextmetadatalanguage"
+                    }
+                },
+                {
+                    "name": "badFileContextTitle",
+                    "type": "String",
+                    "info": "If badfilecontexttitleprop=badfile is set, this is the page title used when evaluating the MediaWiki:Bad image list.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iibadfilecontexttitle"
+                    }
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "iibadfilecontexttitle",
+                            "badFileContextTitle",
+                            "iiextmetadatalanguage",
+                            "iiurlheight",
+                            "iiurlwidth",
+                            "iistart",
+                            "iiend",
+                            "iiprop",
+                            "titles"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getWatchList",
+            "description": "Get recent changes to pages in the current user's watchlist.",
+            "args": [
+                {
+                    "name": "username",
+                    "type": "String",
+                    "info": "Your username.",
+                    "required": true
+                },
+                {
+                    "name": "password",
+                    "type": "String",
+                    "info": "Your password.",
+                    "required": true
+                },
+                {
+                    "name": "end",
+                    "type": "DatePicker",
+                    "info": "The timestamp to end enumerating.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wlend",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                },
+                {
+                    "name": "start",
+                    "type": "DatePicker",
+                    "info": "The timestamp to start enumerating from.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wlstart",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                },
+                {
+                    "name": "includeMultipleRevisions",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Include multiple revisions of the same page within given timeframe.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wlallrev"
+                    }
+                },
+                {
+                    "name": "wlProp",
+                    "type": "List",
+                    "structure": {
+                        "name": "type",
+                        "type": "Select",
+                        "options": [
+                            "ids",
+                            "title",
+                            "flags",
+                            "user",
+                            "userid",
+                            "comment",
+                            "parsedcomment",
+                            "timestamp",
+                            "patrol",
+                            "sizes",
+                            "notificationtimestamp",
+                            "loginfo"
+                        ],
+                        "info": "Single type of changes to show."
+                    },
+                    "info": "Which additional properties to get.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wlprop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "wlTypes",
+                    "type": "List",
+                    "structure": {
+                        "name": "type",
+                        "type": "Select",
+                        "options": [
+                            "edit",
+                            "new",
+                            "log",
+                            "external",
+                            "categorize"
+                        ],
+                        "info": "Single type of changes to show."
+                    },
+                    "info": "Which types of changes to show.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wltype",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "wlLimit",
+                    "type": "Number",
+                    "info": "How many total results to return per request.No more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wllimit"
+                    }
+                },
+                {
+                    "name": "wlToken",
+                    "type": "String",
+                    "info": "A security token (available in the user's preferences) to allow access to another user's watchlist.See more in readme.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wltoken"
+                    }
+                },
+                {
+                    "name": "wlOwner",
+                    "type": "String",
+                    "info": "Used along with wltoken to access a different user's watchlist.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wlowner"
+                    }
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                },
+                {
+                    "name": "wlNamespaces",
+                    "type": "String",
+                    "info": "Filter changes to only the given namespaces.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "wlnamespace"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "wlnamespace",
+                            "wlowner",
+                            "wltoken",
+                            "wllimit",
+                            "wltype",
+                            "wlprop",
+                            "wlallrev",
+                            "wlstart",
+                            "wlend"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getPagesCategories",
+            "description": "List all categories the pages belong to.",
+            "args": [
+                {
+                    "name": "pageIds",
+                    "type": "List",
+                    "structure": {
+                        "name": "pageId",
+                        "type": "String",
+                        "info": "single pageId."
+                    },
+                    "info": "A list of page IDs to work on.Maximum number of values is 50 (500 for bots).",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "pageids",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "additionalLists",
+                    "type": "List",
+                    "structure": {
+                        "name": "list",
+                        "type": "Select",
+                        "options": [
+                            "abusefilters",
+                            "abuselog",
+                            "allcategories",
+                            "alldeletedrevisions",
+                            "allfileusages",
+                            "allimages",
+                            "alllinks",
+                            "allpages",
+                            "allredirects",
+                            "allrevisions",
+                            "alltransclusions",
+                            "allusers",
+                            "backlinks",
+                            "betafeatures",
+                            "blocks",
+                            "categorymembers",
+                            "centralnoticelogs",
+                            "checkuser",
+                            "checkuserlog",
+                            "contenttranslation",
+                            "contenttranslationcorpora",
+                            "contenttranslationlangtrend",
+                            "contenttranslationstats",
+                            "contenttranslationsuggestions",
+                            "cxpublishedtranslations",
+                            "cxtranslatorstats",
+                            "embeddedin",
+                            "exturlusage",
+                            "filearchive",
+                            "gadgetcategories",
+                            "gadgets",
+                            "geosearch",
+                            "gettingstartedgetpages",
+                            "globalallusers",
+                            "globalblocks",
+                            "globalgroups",
+                            "imageusage",
+                            "iwbacklinks",
+                            "langbacklinks",
+                            "linterrors",
+                            "logevents",
+                            "mmsites",
+                            "mostviewed",
+                            "mystashedfiles",
+                            "oldreviewedpages",
+                            "pagepropnames",
+                            "pageswithprop",
+                            "prefixsearch",
+                            "projectpages",
+                            "projects",
+                            "protectedtitles",
+                            "querypage",
+                            "random",
+                            "recentchanges",
+                            "search",
+                            "tags",
+                            "usercontribs",
+                            "users",
+                            "watchlist",
+                            "watchlistraw",
+                            "wblistentityusage",
+                            "wikisets",
+                            "deletedrevs"
+                        ],
+                        "info": "single list."
+                    },
+                    "info": "Lists of pages that match certain criteria.Lists differ from properties in two aspects - instead of appending data to the elements in the pages element, each list has its own separated branch in the query element.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "list",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "export",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Export the current revisions of all given or generated pages.",
+                    "required": false
+                },
+                {
+                    "name": "indexPageIds",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Include an additional pageids section listing all returned page IDs.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "indexpageids"
+                    }
+                },
+                {
+                    "name": "iwUrl",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Whether to get the full URL if the title is an interwiki link.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "iwurl"
+                    }
+                },
+                {
+                    "name": "rawContinue",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Return raw query-continue data for continuation.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rawcontinue"
+                    }
+                },
+                {
+                    "name": "categoriesLimit",
+                    "type": "Number",
+                    "info": "When more results are available, use this to continue.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "cllimit"
+                    }
+                },
+                {
+                    "name": "clShow",
+                    "type": "List",
+                    "structure": {
+                        "name": "type",
+                        "type": "Select",
+                        "options": [
+                            "hidden",
+                            "!hidden"
+                        ],
+                        "info": "single type to show."
+                    },
+                    "info": "Which kind of categories to show.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "clshow",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "categoryProp",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options": [
+                            "sortkey",
+                            "timestamp",
+                            "hidden"
+                        ],
+                        "info": "single property."
+                    },
+                    "info": "Which additional properties to get for each category.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "clprop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=query&prop=categories",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "rawcontinue",
+                            "iwurl",
+                            "indexpageids",
+                            "export",
+                            "list",
+                            "pageids",
+                            "iwurl",
+                            "rawcontinue",
+                            "cllimit",
+                            "clshow",
+                            "clprop"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "createPage",
+            "description": "Create new page.",
+            "args": [
+                {
+                    "name": "username",
+                    "type": "String",
+                    "info": "Your username.",
+                    "required": true
+                },
+                {
+                    "name": "password",
+                    "type": "String",
+                    "info": "Your password.",
+                    "required": true
+                },
+                {
+                    "name": "title",
+                    "type": "String",
+                    "info": "Title of the page to edit.Example - Talk:testMain_Page.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "title"
+                    }
+                },
+                {
+                    "name": "section",
+                    "type": "String",
+                    "info": "Section number. 0 for the top section, new for a new section.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "section"
+                    }
+                },
+                {
+                    "name": "sectionTitle",
+                    "type": "String",
+                    "info": "The title for a new section.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "sectiontitle"
+                    }
+                },
+                {
+                    "name": "pageText",
+                    "type": "String",
+                    "info": "Page content.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "text"
+                    }
+                },
+                {
+                    "name": "summary",
+                    "type": "String",
+                    "info": "Edit summary. Also section title when section=new and sectiontitle is not set.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "summary"
+                    }
+                },
+                {
+                    "name": "tags",
+                    "type": "String",
+                    "info": "Change tags to apply to the revision.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "tags"
+                    }
+                },
+                {
+                    "name": "baseTimestamp",
+                    "type": "DatePicker",
+                    "info": "Timestamp of the base revision, used to detect edit conflicts. ",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "basetimestamp",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=edit&",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "form_params",
+                        "parameters": [
+                            "token",
+                            "tags",
+                            "summary",
+                            "text",
+                            "sectiontitle",
+                            "section",
+                            "title",
+                            "basetimestamp"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updatePage",
+            "description": "Edit page.",
+            "args": [
+                {
+                    "name": "username",
+                    "type": "String",
+                    "info": "Your username.",
+                    "required": true
+                },
+                {
+                    "name": "password",
+                    "type": "String",
+                    "info": "Your password.",
+                    "required": true
+                },
+                {
+                    "name": "pageId",
+                    "type": "String",
+                    "info": "Page ID of the page to edit.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "pageid"
+                    }
+                },
+                {
+                    "name": "section",
+                    "type": "String",
+                    "info": "Section number. 0 for the top section, new for a new section.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "section"
+                    }
+                },
+                {
+                    "name": "sectionTitle",
+                    "type": "String",
+                    "info": "The title for a new section.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "sectiontitle"
+                    }
+                },
+                {
+                    "name": "pageText",
+                    "type": "String",
+                    "info": "Page content.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "text"
+                    }
+                },
+                {
+                    "name": "summary",
+                    "type": "String",
+                    "info": "Edit summary. Also section title when section=new and sectiontitle is not set.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "summary"
+                    }
+                },
+                {
+                    "name": "tags",
+                    "type": "String",
+                    "info": "Change tags to apply to the revision.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "tags"
+                    }
+                },
+                {
+                    "name": "prependText",
+                    "type": "String",
+                    "info": "Add this text to the beginning of the page. Overrides text.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "prependtext"
+                    }
+                },
+                {
+                    "name": "botEdit",
+                    "type": "String",
+                    "info": "Mark this edit as a bot edit.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "bot"
+                    }
+                },
+                {
+                    "name": "contentFormat",
+                    "type": "String",
+                    "info": "Content serialization format used for the input text.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "contentformat"
+                    }
+                },
+                {
+                    "name": "appendText",
+                    "type": "String",
+                    "info": "Add this text to the end of the page. Overrides text.Use section=new to append a new section, rather than this parameter.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "appendtext"
+                    }
+                },
+                {
+                    "name": "appendText",
+                    "type": "String",
+                    "info": "Add this text to the end of the page. Overrides text.Use section=new to append a new section, rather than this parameter.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "appendtext"
+                    }
+                },
+                {
+                    "name": "minor",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Minor edit.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "minor"
+                    }
+                },
+                {
+                    "name": "notMinor",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Notminor edit.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "notminor"
+                    }
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=edit&",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "form_params",
+                        "parameters": [
+                            "notminor",
+                            "minor",
+                            "prependtext",
+                            "token",
+                            "tags",
+                            "summary",
+                            "text",
+                            "sectiontitle",
+                            "section",
+                            "pageid",
+                            "appendtext",
+                            "bot",
+                            "contentformat"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "deletePage",
+            "description": "Delete page.",
+            "args": [
+                {
+                    "name": "username",
+                    "type": "String",
+                    "info": "Your username.",
+                    "required": true
+                },
+                {
+                    "name": "password",
+                    "type": "String",
+                    "info": "Your password.",
+                    "required": true
+                },
+                {
+                    "name": "pageId",
+                    "type": "String",
+                    "info": "Page ID of the page to edit.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "pageid"
+                    }
+                },
+                {
+                    "name": "reason",
+                    "type": "String",
+                    "info": "The reason for the deletion (optional). If not provided, an automatically generated reason will be used.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "reason"
+                    }
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                },
+                {
+                    "name": "tags",
+                    "type": "List",
+                    "structure": {
+                        "name": "tag",
+                        "type": "String",
+                        "info": "single tag."
+                    },
+                    "info": "Change tags to apply to the entry in the deletion log.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "tags",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "watchList",
+                    "type": "Select",
+                    "options": [
+                        "watch",
+                        "unwatch",
+                        "preferences",
+                        "nochange"
+                    ],
+                    "info": "Unconditionally add or remove the page from the current user's watchlist, use preferences or do not change watch.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "watchlists"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=delete&",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "pageid",
+                            "token",
+                            "reason",
+                            "tags",
+                            "watchlists"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "comparePages",
+            "description": "Get the difference between two pages.",
+            "args": [
+                {
+                    "name": "username",
+                    "type": "String",
+                    "info": "Your username.",
+                    "required": true
+                },
+                {
+                    "name": "password",
+                    "type": "String",
+                    "info": "Your password.",
+                    "required": true
+                },
+                {
+                    "name": "fromTitle",
+                    "type": "String",
+                    "info": "First title to compare.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "fromtitle"
+                    }
+                },
+                {
+                    "name": "fromId",
+                    "type": "Number",
+                    "info": "First page ID to compare.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "fromid"
+                    }
+                },
+                {
+                    "name": "fromRevisionId",
+                    "type": "Number",
+                    "info": "First revision to compare.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "fromrev"
+                    }
+                },
+                {
+                    "name": "fromText",
+                    "type": "String",
+                    "info": "Use this text instead of the content of the revision specified by fromtitle, fromid or fromrev.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "fromtext"
+                    }
+                },
+                {
+                    "name": "fromPst",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Do a pre-save transform on fromtext.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "frompst"
+                    }
+                },
+                {
+                    "name": "fromContentFormat",
+                    "type": "Select",
+                    "options": [
+                        "text\/css",
+                        "text\/javascript",
+                        "text\/x-wiki",
+                        "text\/plain",
+                        "application\/json"
+                    ],
+                    "info": "Content serialization format of fromtext.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "fromcontentformat"
+                    }
+                },
+                {
+                    "name": "fromContentModel",
+                    "type": "Select",
+                    "options": [
+                        "GadgetDefinition",
+                        "SecurePoll",
+                        "MassMessageListContent",
+                        "Scribunto",
+                        "JsonSchema",
+                        "wikitext",
+                        "javascript",
+                        "json",
+                        "css",
+                        "text"
+                    ],
+                    "info": "Content model of fromtext. If not supplied, it will be guessed based on the other parameters.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "fromcontentmodel"
+                    }
+                },
+                {
+                    "name": "toTitle",
+                    "type": "String",
+                    "info": "Second title to compare.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "totitle"
+                    }
+                },
+                {
+                    "name": "toId",
+                    "type": "Number",
+                    "info": "Second page ID to compare.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "toid"
+                    }
+                },
+                {
+                    "name": "toRevisionId",
+                    "type": "Number",
+                    "info": "Second revision to compare.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "torev"
+                    }
+                },
+                {
+                    "name": "toText",
+                    "type": "String",
+                    "info": "Use this text instead of the content of the revision specified by totitle, toid or torev.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "totext"
+                    }
+                },
+                {
+                    "name": "toRelative",
+                    "type": "Select",
+                    "options": [
+                        "prev",
+                        "next",
+                        "cur"
+                    ],
+                    "info": "Use a revision relative to the revision determined from fromtitle, fromid or fromrev. All of the other 'to' options will be ignored.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "torelative"
+                    }
+                },
+                {
+                    "name": "toPst",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Do a pre-save transform on totext.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "frompst"
+                    }
+                },
+                {
+                    "name": "toContentFormat",
+                    "type": "Select",
+                    "options": [
+                        "text\/css",
+                        "text\/javascript",
+                        "text\/x-wiki",
+                        "text\/plain",
+                        "application\/json"
+                    ],
+                    "info": "Content serialization format of totext.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "tocontentformat"
+                    }
+                },
+                {
+                    "name": "toContentModel",
+                    "type": "Select",
+                    "options": [
+                        "GadgetDefinition",
+                        "SecurePoll",
+                        "MassMessageListContent",
+                        "Scribunto",
+                        "JsonSchema",
+                        "wikitext",
+                        "javascript",
+                        "json",
+                        "css",
+                        "text"
+                    ],
+                    "info": "Content model of totext. If not supplied, it will be guessed based on the other parameters.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "tocontentmodel"
+                    }
+                },
+                {
+                    "name": "prop",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options": [
+                            "diff",
+                            "diffsize",
+                            "rel",
+                            "ids",
+                            "title",
+                            "user",
+                            "comment",
+                            "parsedcomment",
+                            "size"
+                        ],
+                        "info": "single property."
+                    },
+                    "info": "Which pieces of information to get.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "prop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=compare&",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "fromtitle",
+                            "fromid",
+                            "fromrev",
+                            "fromtext",
+                            "frompst",
+                            "fromcontentformat",
+                            "fromcontentmodel",
+                            "totitle",
+                            "toid",
+                            "torev",
+                            "torelative",
+                            "totext",
+                            "totext",
+                            "topst",
+                            "tocontentformat",
+                            "tocontentmodel",
+                            "prop"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "updateMessageList",
+            "description": "Edit a mass message delivery list.",
+            "args": [
+                {
+                    "name": "username",
+                    "type": "String",
+                    "info": "Your username.",
+                    "required": true
+                },
+                {
+                    "name": "password",
+                    "type": "String",
+                    "info": "Your password.",
+                    "required": true
+                },
+                {
+                    "name": "spamList",
+                    "type": "String",
+                    "info": "Title of the delivery list to update.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "spamlist"
+                    }
+                },
+                {
+                    "name": "add",
+                    "type": "List",
+                    "structure": {
+                        "name": "title",
+                        "type": "String",
+                        "info": "single title."
+                    },
+                    "info": "Titles to add to the list.Maximum number of values is 50 (500 for bots).",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "add",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "remove",
+                    "type": "List",
+                    "structure": {
+                        "name": "title",
+                        "type": "String",
+                        "info": "single title."
+                    },
+                    "info": "Titles to remove from the list.Maximum number of values is 50 (500 for bots).",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "remove",
+                        "format": "toString:{|}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=editmassmessagelist&",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "remove",
+                            "add",
+                            "token",
+                            "spamlist"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "sendEmailToUser",
+            "description": "Returns file url.",
+            "args": [
+                {
+                    "name": "username",
+                    "type": "String",
+                    "info": "Your username.",
+                    "required": true
+                },
+                {
+                    "name": "password",
+                    "type": "String",
+                    "info": "Your password.",
+                    "required": true
+                },
+                {
+                    "name": "target",
+                    "type": "String",
+                    "info": "User to send email to.Example - Rapidapi.",
+                    "required": true
+                },
+                {
+                    "name": "subject",
+                    "type": "String",
+                    "info": "Subject header.",
+                    "required": false
+                },
+                {
+                    "name": "text",
+                    "type": "String",
+                    "info": "Mail body.",
+                    "required": true
+                },
+                {
+                    "name": "copyToMe",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Send a copy of this mail to me.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "ccme"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=emailuser&",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "target",
+                            "token",
+                            "subject",
+                            "text",
+                            "ccme"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getRevisionByPageId",
+            "description": "Returns revisions for a given page, or the latest revision for each of several pages.",
+            "args": [
+                {
+                    "name": "pageIds",
+                    "type": "List",
+                    "structure": {
+                        "name": "pageId",
+                        "type": "String",
+                        "info": "single pageId."
+                    },
+                    "info": "A list of page IDs to work on.Maximum number of values is 50 (500 for bots).",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "pageids",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "revisionProperty",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options": [
+                            "ids",
+                            "flags",
+                            "timestamp",
+                            "user",
+                            "userid",
+                            "size",
+                            "sha1",
+                            "contentmodel",
+                            "comment",
+                            "parsedcomment",
+                            "content",
+                            "tags",
+                            "parsetree",
+                            "Deprecated.",
+                            "flagged",
+                            "oresscores"
+                        ],
+                        "info": "Single property."
+                    },
+                    "info": "Which properties to get for each revision.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "rvprop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "rvTag",
+                    "type": "String",
+                    "info": "Only list revisions tagged with this tag.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvtag"
+                    }
+                },
+                {
+                    "name": "rvuser",
+                    "type": "String",
+                    "info": "Only include revisions made by user.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvuser"
+                    }
+                },
+                {
+                    "name": "rvsection",
+                    "type": "String",
+                    "info": "Only retrieve the content of this section number.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvsection"
+                    }
+                },
+                {
+                    "name": "rvExcludeUser",
+                    "type": "String",
+                    "info": "Exclude revisions made by user.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvexcludeuser"
+                    }
+                },
+                {
+                    "name": "rvlimit",
+                    "type": "Number",
+                    "info": "Limit how many revisions will be returned.FNo more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvlimit"
+                    }
+                },
+                {
+                    "name": "rvEnd",
+                    "type": "DatePicker",
+                    "info": "Enumerate up to this timestamp.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvend",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                },
+                {
+                    "name": "rvStart",
+                    "type": "DatePicker",
+                    "info": "From which revision timestamp to start enumeration.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvstart",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=query&prop=revision&",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "target",
+                            "pageids",
+                            "rvprop",
+                            "rvtag",
+                            "rvuser",
+                            "rvsection",
+                            "rvexcludeuser",
+                            "rvlimit",
+                            "rvend",
+                            "rvstart"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getRevisionByPageTitle",
+            "description": "Returns revisions for a given page, or the latest revision for each of several pages.",
+            "args": [
+                {
+                    "name": "titles",
+                    "type": "List",
+                    "structure": {
+                        "name": "title",
+                        "type": "String",
+                        "info": "single title."
+                    },
+                    "info": "A list of titles to work on.Maximum number of values is 50 .",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "titles",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "revisionProperty",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options": [
+                            "ids",
+                            "flags",
+                            "timestamp",
+                            "user",
+                            "userid",
+                            "size",
+                            "sha1",
+                            "contentmodel",
+                            "comment",
+                            "parsedcomment",
+                            "content",
+                            "tags",
+                            "parsetree",
+                            "Deprecated.",
+                            "flagged",
+                            "oresscores"
+                        ],
+                        "info": "Single property."
+                    },
+                    "info": "Which properties to get for each revision.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "rvprop",
+                        "format": "toString:{|}"
+                    }
+                },
+                {
+                    "name": "rvTag",
+                    "type": "String",
+                    "info": "Only list revisions tagged with this tag.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvtag"
+                    }
+                },
+                {
+                    "name": "rvuser",
+                    "type": "String",
+                    "info": "Only include revisions made by user.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvuser"
+                    }
+                },
+                {
+                    "name": "rvsection",
+                    "type": "String",
+                    "info": "Only retrieve the content of this section number.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvsection"
+                    }
+                },
+                {
+                    "name": "rvExcludeUser",
+                    "type": "String",
+                    "info": "Exclude revisions made by user.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvexcludeuser"
+                    }
+                },
+                {
+                    "name": "rvlimit",
+                    "type": "Number",
+                    "info": "Limit how many revisions will be returned.FNo more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvlimit"
+                    }
+                },
+                {
+                    "name": "rvEnd",
+                    "type": "DatePicker",
+                    "info": "Enumerate up to this timestamp.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvend",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                },
+                {
+                    "name": "rvStart",
+                    "type": "DatePicker",
+                    "info": "From which revision timestamp to start enumeration.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvstart",
+                        "format": "toFormat:{Y-m-d\\TH:i:s\\Z}"
+                    }
+                },
+                {
+                    "name": "customParams",
+                    "type": "List",
+                    "structure": [
+                        {
+                            "name": "key",
+                            "type": "String",
+                            "info": "Key param.",
+                            "required": true
+                        },
+                        {
+                            "name": "value",
+                            "type": "String",
+                            "info": "value param.",
+                            "required": true
+                        }
+                    ],
+                    "info": "Additional custom query param.Like this `&key=value`.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "customParams"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=query&prop=revision&",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "target",
+                            "pageids",
+                            "rvprop",
+                            "rvtag",
+                            "rvuser",
+                            "rvsection",
+                            "rvexcludeuser",
+                            "rvlimit",
+                            "rvend",
+                            "rvstart"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "uploadFile",
+            "description": "Edit a mass message delivery list.",
+            "args": [
+                {
+                    "name": "fileUrl",
+                    "type": "String",
+                    "info": "URL to fetch the file from.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "url"
+                    }
+                },
+                {
+                    "name": "fileName",
+                    "type": "String",
+                    "info": "Target filename.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "filename"
+                    }
+                },
+                {
+                    "name": "comment",
+                    "type": "String",
+                    "info": "Upload comment. Also used as the initial page text for new files if text is not specified.",
+                    "required": false
+                },
+                {
+                    "name": "text",
+                    "type": "String",
+                    "info": "Initial page text for new files.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=upload&",
+                "method": "post",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "text",
+                            "comment",
+                            "token",
+                            "filename",
+                            "url",
+                            "token"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getPageContent",
+            "description": "Get page content by page id.",
+            "args": [
+                {
+                    "name": "pageId",
+                    "type": "String",
+                    "info": "Page id.",
+                    "required": true
+                },
+                {
+                    "name": "additionalProperties",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options": [
+                            "ids",
+                            "flags",
+                            "timestamp",
+                            "user",
+                            "userid",
+                            "size",
+                            "sha1",
+                            "contentmodel",
+                            "comment",
+                            "parsedcomment",
+                            "content",
+                            "tags",
+                            "parsetree",
+                            "Deprecated.",
+                            "flagged",
+                            "oresscores"
+                        ],
+                        "info": "single property."
+                    },
+                    "info": "Properties of pages, including page revisions and content.Property queries get various data about a  page.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "rvprop",
+                        "format": "toString:{|}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=query&format=json&prop=revisions&pageids={$data['pageId']}&rvprop={$data['rvprop']}",
+                "method": "get",
+                "requestParameters": []
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getFileUsage",
+            "description": "Find all pages that use the given files.",
+            "args": [
+                {
+                    "name": "fileName",
+                    "type": "String",
+                    "info": "Target filename.Example - `File:Example.jpg`",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "filename"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=query&format=json&prop=fileusage&titles={$data['filename']}",
+                "method": "get",
+                "requestParameters": [
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getAllImageFromPage",
+            "description": "Retrieve all image from page by id.",
+            "args": [
+                {
+                    "name": "pageId",
+                    "type": "String",
+                    "info": "Page id.Example - 1092923.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "pageId"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https://en.wikipedia.org/w/api.php?action=query&pageids={$data['pageId']}&generator=images&prop=imageinfo&iiprop=url|dimensions|mime&format=json",
+                "method": "get",
+                "requestParameters": [
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCurrentUser",
+            "description": "Returns information about the currently logged-in user.",
+            "args": [
+                {
+                    "name": "username",
+                    "type": "String",
+                    "info": "Your username.",
+                    "required": true
+                },
+                {
+                    "name": "password",
+                    "type": "String",
+                    "info": "Your password.",
+                    "required": true
+                },
+                {
+                    "name": "additionalProperties",
+                    "type": "List",
+                    "structure": {
+                        "name": "property",
+                        "type": "Select",
+                        "options":["blockinfo","hasmsg","groups","groupmemberships","implicitgroups","rights","changeablegroups","options","editcount","ratelimits","email","realname","acceptlang","registrationdate","unreadcount","centralids","preferencestoken"],
+                        "info": "single property."
+                    },
+                    "info": "Which pieces of information to include.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "uiprop",
+                        "format": "toString:{|}"
+                    }
+                }
+            ],
+            "vendorRequest": {
+                "url": "https://en.wikipedia.org/w/api.php",
+                "method": "get",
+                "requestParameters": [
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
