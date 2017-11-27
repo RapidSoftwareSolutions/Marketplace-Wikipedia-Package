@@ -13,7 +13,7 @@ $app->post('/api/Wikipedia/getCurrentUser', function ($request, $response) {
     }
 
     $requiredParams = ['username'=>'username','password'=>'password'];
-    $optionalParams = ['additionalProperty' => 'uiprop'];
+    $optionalParams = ['additionalProperties' => 'uiprop'];
     $bodyParams = [
         'query' => ['uiprop']
     ];

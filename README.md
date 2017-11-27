@@ -6,7 +6,7 @@ Wikipedia is a free online encyclopedia with the aim to allow anyone to edit art
 * Credentials: username, password
 
 ## How to get credentials: 
-0. Register on the [www.wikipedia.org](https://www.en.wikipedia.org)
+0. Register on the [www.wikipedia.org](https://en.wikipedia.org)
 
  ## Custom datatypes: 
   |Datatype|Description|Example
@@ -28,7 +28,6 @@ GetArticleByTitles module allows you to get information about a wiki and the dat
 | export              | Select| Export the current revisions of all given or generated pages.
 | indexPageIds        | Select| Include an additional pageids section listing all returned page IDs.
 | iwurl               | Select| Whether to get the full URL if the title is an interwiki link.
-| rawcontinue         | Select| Return raw query-continue data for continuation.
 | customParams        | List  | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.getPage
@@ -42,7 +41,6 @@ GetPage module allows you to get information by id about a wiki and the data sto
 | export              | Select| Export the current revisions of all given or generated pages.
 | indexPageIds        | Select| Include an additional pageids section listing all returned page IDs.
 | iwurl               | Select| Whether to get the full URL if the title is an interwiki link.
-| rawcontinue         | Select| Return raw query-continue data for continuation.
 | customParams        | List  | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.getPageByRevisionId
@@ -56,7 +54,6 @@ getPageByRevId module allows you to get information by id about a wiki and the d
 | export              | Select| Export the current revisions of all given or generated pages.
 | indexPageIds        | Select| Include an additional pageids section listing all returned page IDs.
 | iwurl               | Select| Whether to get the full URL if the title is an interwiki link.
-| rawcontinue         | Select| Return raw query-continue data for continuation.
 | customParams        | List  | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.getFileUrl
@@ -73,12 +70,11 @@ Returns file information and upload history.See more [here](https://www.mediawik
 |--------------------|-----------|----------
 | fileNames          | List      | Which file get.
 | informationToGet   | List      | Which file information to get.
-| informationLimit   | String    | Example - `File:James Hetfield - Cardiff 1996.jpg`.
+| informationLimit   | String    | How many total results to return per request.No more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.
 | startListingFrom   | DatePicker| Timestamp to start listing from.
 | stopListingAt      | DatePicker| Timestamp to stop listing at.
 | urlWidth           | String    | If iiprop=url is set, a URL to an image scaled to this width will be returned. For performance reasons if this option is used, no more than 50 scaled images will be returned.
 | urlHeight          | String    | Similar to iiurlwidth.
-| metadataLanguage   | String    | What language to fetch extmetadata in. This affects both which translation to fetch, if multiple are available, as well as how things like numbers and various values are formatted.
 | badFileContextTitle| String    | If badfilecontexttitleprop=badfile is set, this is the page title used when evaluating the MediaWiki:Bad image list.
 | customParams       | List      | Additional custom query param.Like this `&key=value`.
 
@@ -95,7 +91,7 @@ Get recent changes to pages in the current user's watchlist.See more [here](http
 | wlProp                  | List      | Which additional properties to get.
 | wlTypes                 | List      | Which types of changes to show.
 | wlLimit                 | Number    | How many total results to return per request.No more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.
-| wlToken                 | String    | A security token (available in the user's preferences) to allow access to another user's watchlist.
+| wlToken                 | String    | A security token (available in the user's preferences) to allow access to another user's watchlist.See more [here](https://www.mediawiki.org/wiki/API:Watchlist) .
 | wlOwner                 | String    | Used along with wltoken to access a different user's watchlist.
 | customParams            | List      | Additional custom query param.Like this `&key=value`.
 | wlNamespaces            | String    | Filter changes to only the given namespaces.
@@ -115,19 +111,6 @@ List all categories the pages belong to.
 | clShow         | List  | Which kind of categories to show.
 | categoryProp   | List  | Which additional properties to get for each category.
 | customParams   | List  | Additional custom query param.Like this `&key=value`.
-
-## Wikipedia.deletePage
-Delete page.
-
-| Field       | Type  | Description
-|-------------|-------|----------
-| username    | String| Your username.
-| password    | String| Your password.
-| pageId      | String| Page ID of the page to edit.
-| reason      | String| The reason for the deletion (optional). If not provided, an automatically generated reason will be used.
-| customParams| List  | Additional custom query param.Like this `&key=value`.
-| tags        | List  | Change tags to apply to the entry in the deletion log.
-| watchList   | Select| Unconditionally add or remove the page from the current user's watchlist, use preferences or do not change watch.
 
 ## Wikipedia.comparePages
 Get the difference between two pages.
@@ -166,7 +149,7 @@ Edit a mass message delivery list.
 | remove  | List  | Titles to remove from the list.Maximum number of values is 50 (500 for bots).
 
 ## Wikipedia.sendEmailToUser
-Returns file url.
+You can send email to users who have a confirmed email address.
 
 | Field   | Type  | Description
 |---------|-------|----------
@@ -178,7 +161,7 @@ Returns file url.
 | copyToMe| Select| Send a copy of this mail to me.
 
 ## Wikipedia.getRevisionByPageId
-Returns revisions for a given page, or the latest revision for each of several pages.
+Returns revisions for a given page by id, or the latest revision for each of several pages.
 
 | Field           | Type      | Description
 |-----------------|-----------|----------
@@ -194,7 +177,7 @@ Returns revisions for a given page, or the latest revision for each of several p
 | customParams    | List      | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.getRevisionByPageTitle
-Returns revisions for a given page, or the latest revision for each of several pages.
+Returns revisions for a given page by title, or the latest revision for each of several pages.
 
 | Field           | Type      | Description
 |-----------------|-----------|----------
@@ -210,10 +193,12 @@ Returns revisions for a given page, or the latest revision for each of several p
 | customParams    | List      | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.uploadFile
-Edit a mass message delivery list.
+Uplaod File.
 
 | Field   | Type  | Description
 |---------|-------|----------
+| username            | String| Your username.
+| password            | String| Your password.
 | fileUrl | String| URL to fetch the file from.
 | fileName| String| Target filename.
 | comment | String| Upload comment. Also used as the initial page text for new files if text is not specified.

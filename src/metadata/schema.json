@@ -73,13 +73,11 @@
                             "redirects",
                             "references",
                             "revisions",
-                            "stashimageinfo",
                             "templates",
                             "transcludedin",
                             "transcodestatus",
                             "videoinfo",
-                            "wbentityusage",
-                            "flowinfo"
+                            "wbentityusage"
                         ],
                         "info": "single property."
                     },
@@ -114,7 +112,6 @@
                             "blocks",
                             "categorymembers",
                             "centralnoticelogs",
-                            "checkuser",
                             "checkuserlog",
                             "contenttranslation",
                             "contenttranslationcorpora",
@@ -124,7 +121,6 @@
                             "cxpublishedtranslations",
                             "cxtranslatorstats",
                             "embeddedin",
-                            "exturlusage",
                             "filearchive",
                             "gadgetcategories",
                             "gadgets",
@@ -140,7 +136,6 @@
                             "logevents",
                             "mmsites",
                             "mostviewed",
-                            "mystashedfiles",
                             "oldreviewedpages",
                             "pagepropnames",
                             "pageswithprop",
@@ -155,8 +150,6 @@
                             "tags",
                             "usercontribs",
                             "users",
-                            "watchlist",
-                            "watchlistraw",
                             "wblistentityusage",
                             "wikisets",
                             "deletedrevs"
@@ -174,8 +167,7 @@
                     "name": "export",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Export the current revisions of all given or generated pages.",
                     "required": false
@@ -184,8 +176,7 @@
                     "name": "indexPageIds",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Include an additional pageids section listing all returned page IDs.",
                     "required": false,
@@ -197,25 +188,14 @@
                     "name": "iwurl",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Whether to get the full URL if the title is an interwiki link.",
                     "required": false
                 },
                 {
-                    "name": "rawcontinue",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Return raw query-continue data for continuation.",
-                    "required": false
-                },
-                {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -316,7 +296,6 @@
                             "redirects",
                             "references",
                             "revisions",
-                            "stashimageinfo",
                             "templates",
                             "transcludedin",
                             "transcodestatus",
@@ -357,7 +336,6 @@
                             "blocks",
                             "categorymembers",
                             "centralnoticelogs",
-                            "checkuser",
                             "checkuserlog",
                             "contenttranslation",
                             "contenttranslationcorpora",
@@ -367,7 +345,6 @@
                             "cxpublishedtranslations",
                             "cxtranslatorstats",
                             "embeddedin",
-                            "exturlusage",
                             "filearchive",
                             "gadgetcategories",
                             "gadgets",
@@ -383,7 +360,6 @@
                             "logevents",
                             "mmsites",
                             "mostviewed",
-                            "mystashedfiles",
                             "oldreviewedpages",
                             "pagepropnames",
                             "pageswithprop",
@@ -398,8 +374,6 @@
                             "tags",
                             "usercontribs",
                             "users",
-                            "watchlist",
-                            "watchlistraw",
                             "wblistentityusage",
                             "wikisets",
                             "deletedrevs"
@@ -417,8 +391,7 @@
                     "name": "export",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Export the current revisions of all given or generated pages.",
                     "required": false
@@ -439,25 +412,14 @@
                     "name": "iwurl",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Whether to get the full URL if the title is an interwiki link.",
                     "required": false
                 },
                 {
-                    "name": "rawcontinue",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Return raw query-continue data for continuation.",
-                    "required": false
-                },
-                {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -558,13 +520,11 @@
                             "redirects",
                             "references",
                             "revisions",
-                            "stashimageinfo",
                             "templates",
                             "transcludedin",
                             "transcodestatus",
                             "videoinfo",
-                            "wbentityusage",
-                            "flowinfo"
+                            "wbentityusage"
                         ],
                         "info": "single property."
                     },
@@ -599,7 +559,6 @@
                             "blocks",
                             "categorymembers",
                             "centralnoticelogs",
-                            "checkuser",
                             "checkuserlog",
                             "contenttranslation",
                             "contenttranslationcorpora",
@@ -609,7 +568,6 @@
                             "cxpublishedtranslations",
                             "cxtranslatorstats",
                             "embeddedin",
-                            "exturlusage",
                             "filearchive",
                             "gadgetcategories",
                             "gadgets",
@@ -625,7 +583,6 @@
                             "logevents",
                             "mmsites",
                             "mostviewed",
-                            "mystashedfiles",
                             "oldreviewedpages",
                             "pagepropnames",
                             "pageswithprop",
@@ -640,8 +597,6 @@
                             "tags",
                             "usercontribs",
                             "users",
-                            "watchlist",
-                            "watchlistraw",
                             "wblistentityusage",
                             "wikisets",
                             "deletedrevs"
@@ -659,8 +614,7 @@
                     "name": "export",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Export the current revisions of all given or generated pages.",
                     "required": false
@@ -669,8 +623,7 @@
                     "name": "indexPageIds",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Include an additional pageids section listing all returned page IDs.",
                     "required": false,
@@ -682,25 +635,14 @@
                     "name": "iwurl",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Whether to get the full URL if the title is an interwiki link.",
                     "required": false
                 },
                 {
-                    "name": "rawcontinue",
-                    "type": "Select",
-                    "options": [
-                        "true",
-                        "false"
-                    ],
-                    "info": "Return raw query-continue data for continuation.",
-                    "required": false
-                },
-                {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -837,7 +779,7 @@
                 {
                     "name": "informationLimit",
                     "type": "String",
-                    "info": "Example - `File:James Hetfield - Cardiff 1996.jpg`.",
+                    "info": "How many total results to return per request.No more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.",
                     "required": false,
                     "vendorSchema": {
                         "name": "iilimit"
@@ -882,15 +824,6 @@
                     }
                 },
                 {
-                    "name": "metadataLanguage",
-                    "type": "String",
-                    "info": "What language to fetch extmetadata in. This affects both which translation to fetch, if multiple are available, as well as how things like numbers and various values are formatted.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "iiextmetadatalanguage"
-                    }
-                },
-                {
                     "name": "badFileContextTitle",
                     "type": "String",
                     "info": "If badfilecontexttitleprop=badfile is set, this is the page title used when evaluating the MediaWiki:Bad image list.",
@@ -901,7 +834,7 @@
                 },
                 {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -994,8 +927,7 @@
                     "name": "includeMultipleRevisions",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Include multiple revisions of the same page within given timeframe.",
                     "required": false,
@@ -1056,7 +988,7 @@
                 },
                 {
                     "name": "wlLimit",
-                    "type": "Number",
+                    "type": "String",
                     "info": "How many total results to return per request.No more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.",
                     "required": false,
                     "vendorSchema": {
@@ -1083,7 +1015,7 @@
                 },
                 {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -1188,7 +1120,6 @@
                             "blocks",
                             "categorymembers",
                             "centralnoticelogs",
-                            "checkuser",
                             "checkuserlog",
                             "contenttranslation",
                             "contenttranslationcorpora",
@@ -1198,7 +1129,6 @@
                             "cxpublishedtranslations",
                             "cxtranslatorstats",
                             "embeddedin",
-                            "exturlusage",
                             "filearchive",
                             "gadgetcategories",
                             "gadgets",
@@ -1214,7 +1144,6 @@
                             "logevents",
                             "mmsites",
                             "mostviewed",
-                            "mystashedfiles",
                             "oldreviewedpages",
                             "pagepropnames",
                             "pageswithprop",
@@ -1229,8 +1158,6 @@
                             "tags",
                             "usercontribs",
                             "users",
-                            "watchlist",
-                            "watchlistraw",
                             "wblistentityusage",
                             "wikisets",
                             "deletedrevs"
@@ -1248,8 +1175,7 @@
                     "name": "export",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Export the current revisions of all given or generated pages.",
                     "required": false
@@ -1258,8 +1184,7 @@
                     "name": "indexPageIds",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Include an additional pageids section listing all returned page IDs.",
                     "required": false,
@@ -1271,8 +1196,7 @@
                     "name": "iwUrl",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Whether to get the full URL if the title is an interwiki link.",
                     "required": false,
@@ -1284,8 +1208,7 @@
                     "name": "rawContinue",
                     "type": "Select",
                     "options": [
-                        "true",
-                        "false"
+                        "true"
                     ],
                     "info": "Return raw query-continue data for continuation.",
                     "required": false,
@@ -1343,7 +1266,7 @@
                 },
                 {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -1383,121 +1306,6 @@
                             "cllimit",
                             "clshow",
                             "clprop"
-                        ]
-                    }
-                ]
-            },
-            "callbacks": [
-                {
-                    "name": "error",
-                    "info": "Error"
-                },
-                {
-                    "name": "success",
-                    "info": "Success"
-                }
-            ]
-        },
-        {
-            "name": "deletePage",
-            "description": "Delete page.",
-            "args": [
-                {
-                    "name": "username",
-                    "type": "credentials",
-                    "info": "Your username.",
-                    "required": true
-                },
-                {
-                    "name": "password",
-                    "type": "credentials",
-                    "info": "Your password.",
-                    "required": true
-                },
-                {
-                    "name": "pageId",
-                    "type": "String",
-                    "info": "Page ID of the page to edit.",
-                    "required": true,
-                    "vendorSchema": {
-                        "name": "pageid"
-                    }
-                },
-                {
-                    "name": "reason",
-                    "type": "String",
-                    "info": "The reason for the deletion (optional). If not provided, an automatically generated reason will be used.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "reason"
-                    }
-                },
-                {
-                    "name": "customParams",
-                    "type": "List",
-                    "structure": [
-                        {
-                            "name": "key",
-                            "type": "String",
-                            "info": "Key param.",
-                            "required": true
-                        },
-                        {
-                            "name": "value",
-                            "type": "String",
-                            "info": "value param.",
-                            "required": true
-                        }
-                    ],
-                    "info": "Additional custom query param.Like this `&key=value`.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "customParams"
-                    }
-                },
-                {
-                    "name": "tags",
-                    "type": "List",
-                    "structure": {
-                        "name": "tag",
-                        "type": "String",
-                        "info": "single tag."
-                    },
-                    "info": "Change tags to apply to the entry in the deletion log.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "tags",
-                        "format": "toString:{|}"
-                    }
-                },
-                {
-                    "name": "watchList",
-                    "type": "Select",
-                    "options": [
-                        "watch",
-                        "unwatch",
-                        "preferences",
-                        "nochange"
-                    ],
-                    "info": "Unconditionally add or remove the page from the current user's watchlist, use preferences or do not change watch.",
-                    "required": false,
-                    "vendorSchema": {
-                        "name": "watchlists"
-                    }
-                }
-            ],
-            "vendorRequest": {
-                "url": "https:\/\/en.wikipedia.org\/w\/api.php?action=delete&",
-                "method": "post",
-                "requestParameters": [
-                    {
-                        "type": "query",
-                        "parameters": [
-                            "pageid",
-                            "token",
-                            "reason",
-                            "tags",
-                            "watchlists"
                         ]
                     }
                 ]
@@ -1743,7 +1551,7 @@
                 },
                 {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -1888,7 +1696,7 @@
         },
         {
             "name": "sendEmailToUser",
-            "description": "Returns file url.",
+            "description": "You can send email to users who have a confirmed email address.",
             "args": [
                 {
                     "name": "username",
@@ -1963,7 +1771,7 @@
         },
         {
             "name": "getRevisionByPageId",
-            "description": "Returns revisions for a given page, or the latest revision for each of several pages.",
+            "description": "Returns revisions for a given page by id, or the latest revision for each of several pages.",
             "args": [
                 {
                     "name": "pageIds",
@@ -2000,7 +1808,6 @@
                             "content",
                             "tags",
                             "parsetree",
-                            "Deprecated.",
                             "flagged",
                             "oresscores"
                         ],
@@ -2080,7 +1887,7 @@
                 },
                 {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -2136,7 +1943,7 @@
         },
         {
             "name": "getRevisionByPageTitle",
-            "description": "Returns revisions for a given page, or the latest revision for each of several pages.",
+            "description": "Returns revisions for a given page by title, or the latest revision for each of several pages.",
             "args": [
                 {
                     "name": "titles",
@@ -2173,7 +1980,6 @@
                             "content",
                             "tags",
                             "parsetree",
-                            "Deprecated.",
                             "flagged",
                             "oresscores"
                         ],
@@ -2253,7 +2059,7 @@
                 },
                 {
                     "name": "customParams",
-                    "type": "List",
+                    "type": "Array",
                     "structure": [
                         {
                             "name": "key",
@@ -2309,7 +2115,7 @@
         },
         {
             "name": "uploadFile",
-            "description": "Edit a mass message delivery list.",
+            "description": "Upload file.",
             "args": [
                 {
                     "name": "username",
@@ -2412,7 +2218,6 @@
                             "content",
                             "tags",
                             "parsetree",
-                            "Deprecated.",
                             "flagged",
                             "oresscores"
                         ],

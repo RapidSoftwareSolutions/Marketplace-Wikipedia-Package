@@ -19,12 +19,13 @@ $app->post('/api/Wikipedia/getPageContent', function ($request, $response) {
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    $data['rvprop'] = 'content';
     if(!empty($data['rvprop']))
     {
         $data['rvprop'] = \Models\Params::toString($data['rvprop'], '|');
-    }
+    } else {
+        $data['rvprop'] = 'content';
 
+    }
 
     $client = $this->httpClient;
     $query_str = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&pageids={$data['pageId']}&rvprop={$data['rvprop']}";
