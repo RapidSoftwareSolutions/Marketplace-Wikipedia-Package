@@ -52,6 +52,15 @@ $app->post('/api/Wikipedia/getFilesInfo', function ($request, $response) {
     $requestParams['query']['prop'] = 'imageinfo';
     //$requestParams['query']['prop'] = 'fileusage';
 
+    if(!empty($data['customParams']))
+    {
+        foreach($data['customParams'] as $key => $value)
+        {
+            $requestParams['query'][$value['key']] = $value['value'];
+        }
+    }
+
+
 
     try {
         $resp = $client->get($query_str, $requestParams);

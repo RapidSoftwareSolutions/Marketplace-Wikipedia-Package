@@ -52,6 +52,14 @@ $app->post('/api/Wikipedia/getRevisionByPageId', function ($request, $response) 
     $requestParams['query']['prop'] = 'revisions';
     $requestParams['query']['format'] = 'json';
 
+    if(!empty($data['customParams']))
+    {
+        foreach($data['customParams'] as $key => $value)
+        {
+            $requestParams['query'][$value['key']] = $value['value'];
+        }
+    }
+
     try {
         $resp = $client->get($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();

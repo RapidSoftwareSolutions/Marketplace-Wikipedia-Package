@@ -45,6 +45,13 @@ $app->post('/api/Wikipedia/getPageByRevisionId', function ($request, $response) 
     $requestParams['headers'] = [];
     $requestParams['query']['action'] = 'query';
     $requestParams['query']['format'] = 'json';
+    if(!empty($data['customParams']))
+    {
+        foreach($data['customParams'] as $key => $value)
+        {
+            $requestParams['query'][$value['key']] = $value['value'];
+        }
+    }
 
 
     try {

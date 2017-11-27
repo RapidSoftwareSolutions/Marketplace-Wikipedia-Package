@@ -52,6 +52,15 @@ $app->post('/api/Wikipedia/getWatchList', function ($request, $response) {
     $requestParams['query']['format'] = 'json';
     $requestParams['query']['list'] = 'watchlist';
 
+    if(!empty($data['customParams']))
+    {
+        foreach($data['customParams'] as $key => $value)
+        {
+            $requestParams['query'][$value['key']] = $value['value'];
+        }
+    }
+
+
     $authData = \WikiAuth\WikiAuth::auth($data['username'],$data['password']);
     if(!$authData)
     {

@@ -90,7 +90,7 @@ Get recent changes to pages in the current user's watchlist.See more [here](http
 | includeMultipleRevisions| Select    | Include multiple revisions of the same page within given timeframe.
 | wlProp                  | List      | Which additional properties to get.
 | wlTypes                 | List      | Which types of changes to show.
-| wlLimit                 | Number    | How many total results to return per request.No more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.
+| wlLimit                 | String    | How many total results to return per request.No more than 500 (5000 for bots) allowed. Enter max to use the maximum limit.
 | wlToken                 | String    | A security token (available in the user's preferences) to allow access to another user's watchlist.See more [here](https://www.mediawiki.org/wiki/API:Watchlist) .
 | wlOwner                 | String    | Used along with wltoken to access a different user's watchlist.
 | customParams            | List      | Additional custom query param.Like this `&key=value`.
@@ -193,7 +193,7 @@ Returns revisions for a given page by title, or the latest revision for each of 
 | customParams    | List      | Additional custom query param.Like this `&key=value`.
 
 ## Wikipedia.uploadFile
-Uplaod File.
+Upload File.
 
 | Field   | Type  | Description
 |---------|-------|----------

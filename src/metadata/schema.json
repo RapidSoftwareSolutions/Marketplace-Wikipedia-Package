@@ -300,8 +300,7 @@
                             "transcludedin",
                             "transcodestatus",
                             "videoinfo",
-                            "wbentityusage",
-                            "flowinfo"
+                            "wbentityusage"
                         ],
                         "info": "single property."
                     },
@@ -2217,7 +2216,6 @@
                             "parsedcomment",
                             "content",
                             "tags",
-                            "parsetree",
                             "flagged",
                             "oresscores"
                         ],
@@ -2331,7 +2329,7 @@
                     "structure": {
                         "name": "property",
                         "type": "Select",
-                        "options":["blockinfo","hasmsg","groups","groupmemberships","implicitgroups","rights","changeablegroups","options","editcount","ratelimits","email","realname","acceptlang","registrationdate","unreadcount","centralids","preferencestoken"],
+                        "options":["blockinfo","hasmsg","groups","groupmemberships","implicitgroups","rights","changeablegroups","options","editcount","ratelimits","email","realname","acceptlang","registrationdate","unreadcount","centralids"],
                         "info": "single property."
                     },
                     "info": "Which pieces of information to include.",
