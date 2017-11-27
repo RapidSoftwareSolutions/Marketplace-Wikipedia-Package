@@ -2,7 +2,7 @@
 
 # Wikipedia Package
 Wikipedia is a free online encyclopedia with the aim to allow anyone to edit articles. Wikipedia is the largest and most popular general reference work on the Internet,and is ranked the fifth-most popular website. Wikipedia is owned by the nonprofit Wikimedia Foundation.
-* Domain: [www.wikipedia.org](https://www.en.wikipedia.org)
+* Domain: [www.wikipedia.org](https://en.wikipedia.org)
 * Credentials: username, password
 
 ## How to get credentials: 
